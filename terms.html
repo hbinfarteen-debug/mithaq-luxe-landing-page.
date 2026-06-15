@@ -1,88 +1,120 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Mithaq | Privacy Policy & Terms</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Hanken+Grotesk:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Mithaq Luxe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Shared design system with index.html */
+        :root {
+            --surface: #111111;
+            --surface-container-lowest: #0a0a0a;
+            --surface-container: #1a1a1a;
+            --on-surface: #ffffff;
+            --on-surface-variant: #a3a3a3;
+            --secondary: #d4af37;
+            --on-secondary: #111111;
+        }
+
         body {
-            background-color: #131313;
-            color: #e4e2e1;
+            background-color: var(--surface);
+            color: var(--on-surface);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
-    </style>
-    <script>
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "secondary": "#e9c176",
-                      "on-surface": "#e4e2e1",
-                      "background": "#131313",
-                      "on-surface-variant": "#c4c7c7",
-                      "outline-variant": "#444748"
-              },
-              "fontFamily": {
-                      "body-lg": ["Hanken Grotesk"],
-                      "headline-lg": ["Bodoni Moda"],
-                      "body-md": ["Hanken Grotesk"],
-                      "label-caps": ["Hanken Grotesk"]
-              }
-            }
-          }
+
+        .bg-surface-container-lowest { background-color: var(--surface-container-lowest); }
+        .text-secondary { color: var(--secondary); }
+        .text-on-surface-variant { color: var(--on-surface-variant); }
+        .border-outline-variant { border-color: rgba(255, 255, 255, 0.1); }
+        
+        .font-display-lg { font-size: 3rem; font-weight: 300; letter-spacing: 0.05em; }
+        .font-headline-md { font-size: 1.5rem; font-weight: 400; letter-spacing: 0.05em; }
+        .font-body-lg { font-size: 1.125rem; font-weight: 300; line-height: 1.6; }
+        .font-label-caps { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        @media (min-width: 768px) {
+            .font-display-lg { font-size: 4rem; }
         }
-    </script>
+
+        .py-section-gap { padding-top: 6rem; padding-bottom: 6rem; }
+        .px-margin-desktop { padding-left: 2rem; padding-right: 2rem; }
+        .mb-stack-lg { margin-bottom: 2rem; }
+        .mb-stack-md { margin-bottom: 1rem; }
+        .gap-stack-lg { gap: 2rem; }
+    </style>
 </head>
-<body class="font-body-md text-on-surface bg-background py-20 px-8">
-    <div class="max-w-3xl mx-auto">
-        <!-- Logo Top -->
-        <div class="text-center mb-16">
-            <a href="./index.html">
-                <img src="./mithaq-logo.png" alt="Mithaq" class="h-16 md:h-20 object-contain mx-auto"/>
-            </a>
-        </div>
+<body class="min-h-screen flex flex-col">
 
-        <h1 class="font-headline-lg text-4xl mb-2 text-center text-secondary">Privacy Policy</h1>
-        <p class="text-on-surface-variant mb-16 text-center italic">Last Updated: June 15, 2026</p>
+    <!-- Minimal Header -->
+    <header class="py-6 px-margin-desktop bg-surface-container-lowest border-b border-outline-variant/10 flex justify-center">
+        <a href="./index.html"><img src="./mithaq-logo.png" alt="Mithaq" class="h-16 md:h-20 object-contain"/></a>
+    </header>
 
-        <div class="space-y-8 font-body-lg text-lg text-on-surface-variant leading-relaxed">
-            <p>At Mithaq Luxe, we are committed to protecting the privacy and security of our discerning clientele. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
+    <!-- Main Content -->
+    <main class="flex-grow py-section-gap px-margin-desktop max-w-4xl mx-auto w-full">
+        <h1 class="font-display-lg mb-4 text-center">Terms of Service</h1>
+        <p class="font-label-caps text-secondary mb-12 text-center">Last Updated: June 15, 2026</p>
 
-            <h2 class="text-secondary font-headline-lg text-2xl mt-16 mb-4">1. Information We Collect</h2>
-            <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, when you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card numbers or alternative payment gateways), email address, and phone number.</p>
+        <div class="space-y-12 font-body-lg text-on-surface-variant">
+            
+            <div>
+                <p>Welcome to Mithaq Luxe. This website is operated by Mithaq Luxe. Throughout the site, the terms "we", "us" and "our" refer to Mithaq Luxe. By visiting our site and/ or purchasing something from us, you engage in our "Service" and agree to be bound by the following terms and conditions.</p>
+            </div>
 
-            <h2 class="text-secondary font-headline-lg text-2xl mt-16 mb-4">2. How We Use Your Information</h2>
-            <p>We use the order information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations). Additionally, we use this information to:</p>
-            <ul class="list-disc pl-8 space-y-4">
-                <li>Communicate with you and provide bespoke customer support.</li>
-                <li>Screen our orders for potential risk or fraud.</li>
-                <li>Provide you with information or advertising relating to our exclusive collections, events, or product launches, in line with the preferences you have shared with us.</li>
-            </ul>
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">1. Online Boutique Terms</h2>
+                <p>By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence. You may not use our premium products for any illegal or unauthorized purpose, nor may you, in the use of the Service, violate any laws in your jurisdiction.</p>
+            </div>
 
-            <h2 class="text-secondary font-headline-lg text-2xl mt-16 mb-4">3. Sharing Your Personal Information</h2>
-            <p>We share your Personal Information with trusted third parties to help us use your Personal Information, as described above. For example, we use Shopify/WooCommerce to power our online boutique, and Stripe/PayPal to process secure payments. We also use Google Analytics to help us understand how our customers navigate the boutique.</p>
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">2. Products and Bespoke Services</h2>
+                <p>Certain products or services may be available exclusively online through the website. These products may have limited quantities and are subject to return or exchange only according to our Return Policy.</p>
+                <p class="mt-4">We have made every effort to display as accurately as possible the colors and images of our luxury packaging and oils. We reserve the right to limit the sales of our products to any person, geographic region, or jurisdiction.</p>
+            </div>
 
-            <h2 class="text-secondary font-headline-lg text-2xl mt-16 mb-4">4. Data Retention</h2>
-            <p>When you place an order through the Site, we will maintain your Order Information for our records unless and until you ask us to delete this information.</p>
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">3. Accuracy of Billing and Account Information</h2>
+                <p>We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household, or per order. In the event that we make a change to or cancel an order, we may attempt to notify you by contacting the e-mail and/or billing address/phone number provided at the time the order was made.</p>
+            </div>
 
-            <h2 class="text-secondary font-headline-lg text-2xl mt-16 mb-4">5. Your Rights</h2>
-            <p>Depending on your region (e.g., GDPR for European residents), you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.</p>
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">4. Shipping and Fragile Goods</h2>
+                <p>Mithaq Luxe products are meticulously packaged to ensure security during transit. Risk of loss and title for items purchased pass to you upon our delivery to the carrier. Any shipping delays caused by customs or international transit are outside our direct control, though our concierge team will assist in tracking precious cargo.</p>
+            </div>
 
-            <h2 class="text-secondary font-headline-lg text-2xl mt-16 mb-4">6. Contact Us</h2>
-            <p>For more information about our privacy practices, or if you have questions, please contact us by e-mail at <a href="mailto:concierge@mithaqluxe.com" class="text-secondary border-b border-secondary/30 hover:text-white transition-colors">concierge@mithaqluxe.com</a>.</p>
-        </div>
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">5. Returns and Refunds Policy</h2>
+                <p>Due to the artisanal, small-batch nature and hygiene standards of fine scented oils, all sales of opened or unsealed perfume oils are final. Returns or exchanges are only accepted for unopened, completely sealed products in their original luxury packaging within 14 days of delivery, or in the rare event of a product damaged during transit.</p>
+            </div>
 
-        <!-- Created Logo Bottom -->
-        <div class="mt-32 pt-12 border-t border-outline-variant/10 flex justify-center">
-            <img src="./created-logo.png" alt="Created By" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"/>
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">6. Intellectual Property</h2>
+                <p>The visual assets, typography, copy, formulas, and logos displayed on this website are the exclusive intellectual property of Mithaq Luxe. Any unauthorized duplication, redistribution, or modification of these materials is strictly prohibited.</p>
+            </div>
+
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">7. Governing Law</h2>
+                <p>These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of the jurisdiction in which Mithaq Luxe is registered.</p>
+            </div>
+
+            <div>
+                <h2 class="font-headline-md text-on-surface mb-stack-md">8. Changes to Terms of Service</h2>
+                <p>You can review the most current version of the Terms of Service at any time at this page. We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service.</p>
+            </div>
+
         </div>
         
-        <div class="mt-8 text-center">
-            <a href="./index.html" class="font-label-caps text-xs text-on-surface-variant hover:text-secondary uppercase tracking-widest transition-colors">Return to Boutique</a>
+        <div class="mt-20 flex justify-center">
+            <img src="./created-logo.png" alt="Created By" class="h-16 opacity-50"/>
         </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest py-8 px-margin-desktop border-t border-outline-variant/5 text-center">
+        <p class="font-label-caps text-on-surface-variant/40">© 2026 MITHAQ. ALL RIGHTS RESERVED.</p>
+    </footer>
+
 </body>
 </html>
