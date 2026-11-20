@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mithaq Luxe — Mobile Preview</title>
+<style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+        min-height: 100vh;
+        background: radial-gradient(circle at 50% 0%, #1b1b1b 0%, #0b0b0b 60%);
+        color: #e4e2e1;
+        font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 16px 48px;
+        gap: 24px;
+    }
+
+    /* ---- toolbar ---- */
+    .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border: 1px solid rgba(233, 193, 118, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+    }
+    .toolbar .label {
+        font-size: 9px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #8e9192;
+        padding: 0 10px 0 6px;
+    }
+    .device-btn {
+        appearance: none;
+        border: 1px solid transparent;
+        background: transparent;
+        color: #b9b7b6;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        padding: 7px 13px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+    .device-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+    .device-btn.active {
+        color: #131313;
+        background: #e9c176;
+        border-color: #e9c176;
+        font-weight: 600;
+    }
+    .toolbar .sep {
+        width: 1px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.12);
+        margin: 0 4px;
+    }
+    .icon-btn {
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: transparent;
+        color: #b9b7b6;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 7px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+    .icon-btn:hover { color: #e9c176; border-color: rgba(233, 193, 118, 0.5); }
+
+    /* ---- device frame ---- */
+    .stage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
+    .device {
+        position: relative;
+        padding: 12px;
+        border-radius: 54px;
+        background: linear-gradient(160deg, #3a3a3a 0%, #141414 45%, #2a2a2a 100%);
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.09),
+            0 0 0 7px #0a0a0a,
+            0 0 0 8px rgba(255, 255, 255, 0.06),
+            0 40px 80px -20px rgba(0, 0, 0, 0.9),
+            0 0 120px -30px rgba(233, 193, 118, 0.22);
+        transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .screen {
+        position: relative;
+        overflow: hidden;
+        border-radius: 42px;
+        background: #131313;
+        transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .screen iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #131313;
+    }
+    /* notch */
+    .notch {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 108px;
+        height: 26px;
+        background: #0a0a0a;
+        border-radius: 999px;
+        z-index: 5;
+        pointer-events: none;
+    }
+    .notch::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #1c2b33;
+        box-shadow: inset 0 0 0 1px rgba(120, 180, 200, 0.25);
+    }
+    /* home indicator */
+    .home-bar {
+        position: absolute;
+        bottom: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 34%;
+        height: 4px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.35);
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    .meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #6f7273;
+    }
+    .meta strong { color: #e9c176; font-weight: 500; letter-spacing: 0.18em; }
+    .dot { width: 3px; height: 3px; border-radius: 50%; background: #4a4c4d; }
+
+    .hint {
+        font-size: 11px;
+        color: #55585a;
+        letter-spacing: 0.04em;
+        text-align: center;
+        max-width: 380px;
+        line-height: 1.6;
+    }
+    @media (max-width: 720px) {
+        body { padding: 20px 8px 32px; gap: 16px; }
+        .toolbar { border-radius: 18px; gap: 6px; }
+        .toolbar .label { display: none; }
+        .device { transform: scale(0.86); transform-origin: top center; margin-bottom: -60px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+    <span class="label">Viewport</span>
+    <button class="device-btn active" data-w="390" data-h="844" data-name="iPhone 14 Pro">390 × 844</button>
+    <button class="device-btn" data-w="430" data-h="932" data-name="iPhone 15 Pro Max">430 × 932</button>
+    <button class="device-btn" data-w="375" data-h="812" data-name="iPhone X / 12 mini">375 × 812</button>
+    <button class="device-btn" data-w="360" data-h="740" data-name="Galaxy S8">360 × 740</button>
+    <span class="sep"></span>
+    <button class="icon-btn" id="reload">Reload</button>
+</div>
+
+<div class="stage">
+    <div class="device" id="device">
+        <div class="screen" id="screen">
+            <div class="notch"></div>
+            <div class="home-bar"></div>
+            <iframe id="frame" src="index.html" title="Mobile preview of the Mithaq Luxe page"></iframe>
+        </div>
+    </div>
+    <div class="meta">
+        <strong id="deviceName">iPhone 14 Pro</strong>
+        <span class="dot"></span>
+        <span id="deviceSize">390 × 844</span>
+        <span class="dot"></span>
+        <span>Mithaq Luxe</span>
+    </div>
+</div>
+
+<p class="hint">Scroll inside the phone to preview the page. This frame is exactly the device width, so every responsive breakpoint behaves as it would on a real handset.</p>
+
+<script>
+    const frame  = document.getElementById('frame');
+    const screen = document.getElementById('screen');
+    const device = document.getElementById('device');
+    const nameEl = document.getElementById('deviceName');
+    const sizeEl = document.getElementById('deviceSize');
+    const buttons = document.querySelectorAll('.device-btn');
+
+    function applyDevice(btn) {
+        const w = parseInt(btn.dataset.w, 10);
+        const h = parseInt(btn.dataset.h, 10);
+
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+
+        screen.style.width  = w + 'px';
+        screen.style.height = h + 'px';
+        device.style.width  = (w + 24) + 'px';
+        device.style.height = (h + 24) + 'px';
+
+        nameEl.textContent = btn.dataset.name;
+        sizeEl.textContent = w + ' × ' + h;
+    }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+        applyDevice(btn);
+        // nudge the document so media queries re-evaluate immediately
+        frame.contentWindow.location.reload();
+    }));
+
+    document.getElementById('reload').addEventListener('click', () => {
+        frame.contentWindow.location.reload();
+    });
+
+    applyDevice(buttons[0]);
+</script>
+</body>
+</html>
